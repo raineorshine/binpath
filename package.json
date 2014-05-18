@@ -28,7 +28,8 @@
     "command line"
   ],
   "devDependencies": {
-    "mocha": "*",
-    "browserify": "4.x"
+    "browserify": "^4",
+    "insist": "^0.2",
+    "mocha": "^1"
   }
 }

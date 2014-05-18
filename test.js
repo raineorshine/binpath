@@ -1,5 +1,5 @@
 'use strict';
-var assert = require('assert');
+var assert = require('insist');
 var binpath = require('./index.js');
 
 it('should return browserify\'s correct local npm binary path', function () {
