@@ -1,0 +1,34 @@
+{
+  "name": "binpath",
+  "version": "0.0.0",
+  "description": "Returns the executable path of a local npm module.",
+  "license": "MIT",
+  "repository": "metaraine/binpath",
+  "author": {
+    "name": "Raine Lourie",
+    "email": "raine@collegecoding.com",
+    "url": "https://github.com/metaraine"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "./node_modules/mocha/bin/mocha",
+    "browser": "browserify -s $npm_package_name -o browser.js ."
+  },
+  "files": [
+    "index.js"
+  ],
+  "keywords": [
+    "local",
+    "npm",
+    "module",
+    "bin",
+    "executable",
+    "command line"
+  ],
+  "devDependencies": {
+    "mocha": "*",
+    "browserify": "4.x"
+  }
+}
