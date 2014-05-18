@@ -14,9 +14,7 @@ module.exports = function(name){
   }
 
   // get the bin path from the module's package.json
-	var moduleRoot = "./node_modules/" + name + "/";
-
-	var bin = require(moduleRoot + 'package.json').bin;
+	var bin = require(name + '/package').bin;
 
 	// make sure there is exactly one executable
 	if(Object.keys(bin).length === 0) {
@@ -28,5 +26,5 @@ module.exports = function(name){
 	}
 
 	// return the path of the first binary
-  return path.join(__dirname, moduleRoot, bin[Object.keys(bin)[0]]);
+  return path.join(__dirname, 'node_modules', name, bin[Object.keys(bin)[0]]);
 };
