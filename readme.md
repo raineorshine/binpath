@@ -1,4 +1,6 @@
-# binpath [![Build Status](https://travis-ci.org/metaraine/binpath.svg?branch=master)](https://travis-ci.org/metaraine/binpath)
+# binpath
+[![Build Status](https://travis-ci.org/metaraine/binpath.svg?branch=master)](https://travis-ci.org/metaraine/binpath)
+[![NPM version](https://badge.fury.io/js/binpath.svg)](http://badge.fury.io/js/binpath)
 
 > Returns the executable path of a local npm module.
 
@@ -13,6 +15,8 @@ $ npm install --save binpath
 ## Usage
 
 ```js
+var binpath = require('binpath');
+console.log( binpath('mocha') ); // '/PROJECT_DIR/node_modules/mocha/bin/mocha');
 ```
 
 
