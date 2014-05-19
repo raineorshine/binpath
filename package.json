@@ -1,6 +1,6 @@
 {
   "name": "binpath",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Returns the executable path of a local npm module.",
   "license": "MIT",
   "repository": "metaraine/binpath",
