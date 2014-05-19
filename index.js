@@ -4,19 +4,23 @@ var path = require('path');
 module.exports = function(name){
 
 	// read the project package.json
-	var pkg = require('./package.json');
+	var cwd = process.cwd();
+	var pkg = require(path.join(cwd, 'package.json'));
+	var moduleRoot = path.join(cwd, 'node_modules', name);
+	var modulePkg = require(path.join(moduleRoot, 'package.json'));
 
 	// make sure that the specified module exists
 	var hasDep = pkg.dependencies && pkg.dependencies[name];
 	var hasDevDep = pkg.devDependencies && pkg.devDependencies[name];
   if(!hasDep && !hasDevDep) {
+  	console.log(pkg);
     throw new Error('Requested module "' + name + '" not installed in dependencies or devDependencies.');
   }
 
   // get the bin path from the module's package.json
-	var bin = require(name + '/package').bin;
+	var bin = modulePkg.bin;
 
-	// make sure there is exactly one executable
+	// make sure there is at least one executable
 	if(Object.keys(bin).length === 0) {
     throw new Error('Requested module "' + name + '" does not have a binary executable listed in its package.json.');
 	}
@@ -26,5 +30,5 @@ module.exports = function(name){
 	}
 
 	// return the path of the first binary
-  return path.join(__dirname, 'node_modules', name, bin[Object.keys(bin)[0]]);
+  return path.join(moduleRoot, bin[Object.keys(bin)[0]]);
 };
